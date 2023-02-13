@@ -3,12 +3,14 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.dto.DepartmentDto2;
 import com.example.dto.EmployeeDto;
 import com.example.model.Department;
 import com.example.model.Employee;
@@ -25,8 +27,8 @@ public class WebController {
 	
 	
 	@PostMapping("/department")
-	public boolean addDepartmentWithoutEmployee(@RequestBody Department department) {
-		return departmentServices.addDepartmentWithoutEmployee(department);
+	public boolean addDepartmentWithoutEmployee(@RequestBody DepartmentDto2 departmentDto2) {
+		return departmentServices.addDepartmentWithoutEmployee(departmentDto2);
 	}
 	
 	@PostMapping("/department/employee")
@@ -59,5 +61,9 @@ public class WebController {
 		return employeeService.addEmployee(employeeDto);
 	}
 	
+	@DeleteMapping("/employee/{employeeId}")
+	public boolean deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
+		return employeeService.deleteEmployee(employeeId);
+	}
 	
 }

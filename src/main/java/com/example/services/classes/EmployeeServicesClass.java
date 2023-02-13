@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dao.DepartmentDao;
 import com.example.dao.EmployeeDao;
 import com.example.dto.EmployeeDto;
 import com.example.model.Department;
@@ -18,6 +19,8 @@ public class EmployeeServicesClass implements EmployeeService {
 	
 	@Autowired
 	private EmployeeDao employeeDao;
+	@Autowired
+	private DepartmentDao departmentDao;
 
 	@Override
 	public boolean addEmployee(EmployeeDto employeeDto) {
@@ -33,6 +36,17 @@ public class EmployeeServicesClass implements EmployeeService {
 		
 		employeeDao.save(employee);
 		
+		return true;
+	}
+	
+	@Override
+	public boolean deleteEmployee(Integer employeeId) {
+//		final Department department = departmentDao.findById(employeeDao.findById(employeeId)
+//				.get().getEmployeeDepartment().getDepartmentId()).get();
+//		department.getListOfEmployees().clear();
+//		departmentDao.save(department);
+//		employeeDao.existsById(employeeId);
+		employeeDao.deleteById(employeeId);
 		return true;
 	}
 

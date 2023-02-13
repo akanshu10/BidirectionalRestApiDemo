@@ -21,7 +21,7 @@ public class Department {
 	@Id
 	private Integer departmentId;
 	private String departmentName;
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "employeeDepartment")
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "employeeDepartment",orphanRemoval = true)
 //	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 //	@JsonIgnore
 	private List<Employee> listOfEmployees;

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.dao.DepartmentDao;
 import com.example.dto.DepartmentDto;
+import com.example.dto.DepartmentDto2;
 import com.example.dto.EmployeeDto;
 import com.example.model.Department;
 import com.example.model.Employee;
@@ -21,7 +22,10 @@ public class DepartmentServicesClass implements DepartmentServices {
 	private DepartmentDao departmentDao;
 	
 	@Override
-	public boolean addDepartmentWithoutEmployee(Department department) {
+	public boolean addDepartmentWithoutEmployee(DepartmentDto2 departmentDto2) {
+		Department department = new Department();
+		department.setDepartmentId(departmentDto2.getDepartmentId());
+		department.setDepartmentName(departmentDto2.getDepartmentName());
 		departmentDao.save(department);
 		return true;
 	}
