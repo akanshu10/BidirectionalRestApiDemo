@@ -21,6 +21,11 @@ public class Employee {
 	private String companyName;
 	private Integer employeeAge;
 	@ManyToOne
-	@JsonIgnore
 	private Department employeeDepartment;
+	
+	@Override
+	public boolean equals(Object obj) {
+		return this.employeeId==((Employee)obj).getEmployeeId();
+	}
+	
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.DepartmentDao;
 import com.example.dao.EmployeeDao;
@@ -40,13 +41,12 @@ public class EmployeeServicesClass implements EmployeeService {
 	}
 	
 	@Override
+//	@Transactional
 	public boolean deleteEmployee(Integer employeeId) {
-//		final Department department = departmentDao.findById(employeeDao.findById(employeeId)
-//				.get().getEmployeeDepartment().getDepartmentId()).get();
-//		department.getListOfEmployees().clear();
-//		departmentDao.save(department);
-//		employeeDao.existsById(employeeId);
-		employeeDao.deleteById(employeeId);
+		Department department = employeeDao.findById(employeeId).get().getEmployeeDepartment();
+		department.getListOfEmployees().remove(employeeDao.findById(employeeId).get());
+		departmentDao.save(department);
+		
 		return true;
 	}
 
