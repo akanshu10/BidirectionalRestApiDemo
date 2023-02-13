@@ -55,8 +55,8 @@ public class WebController {
 	}
 	
 	@PostMapping("/employee")
-	public boolean addEmployee(@RequestBody Employee employee) {
-		return employeeService.addEmployee(employee);
+	public boolean addEmployee(@RequestBody EmployeeDto employeeDto) {
+		return employeeService.addEmployee(employeeDto);
 	}
 	
 	

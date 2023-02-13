@@ -7,7 +7,7 @@ import com.example.model.Employee;
 
 public interface EmployeeService {
 	
-	public boolean addEmployee(Employee employee);
+	public boolean addEmployee(EmployeeDto employeeDto);
 	public EmployeeDto getEmployeeByEmployeeId(Integer employeeId);
 	public List<EmployeeDto> getAllEmployee();
 }

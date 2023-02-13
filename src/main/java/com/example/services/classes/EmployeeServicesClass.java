@@ -20,9 +20,20 @@ public class EmployeeServicesClass implements EmployeeService {
 	private EmployeeDao employeeDao;
 
 	@Override
-	public boolean addEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addEmployee(EmployeeDto employeeDto) {
+		Employee employee = new Employee();
+		Department department = new Department();
+		department.setDepartmentId(employeeDto.getDepartmentId());
+		department.setDepartmentName(employeeDto.getDepartmentName());
+		employee.setEmployeeId(employeeDto.getEmployeeId());
+		employee.setEmployeeName(employeeDto.getEmployeeName());
+		employee.setCompanyName(employeeDto.getCompanyName());
+		employee.setEmployeeAge(employeeDto.getEmployeeAge());
+		employee.setEmployeeDepartment(department);
+		
+		employeeDao.save(employee);
+		
+		return true;
 	}
 
 	@Override
