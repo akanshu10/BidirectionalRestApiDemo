@@ -58,8 +58,8 @@ public class DepartmentServicesClass implements DepartmentServices {
 	public DepartmentDto createDepartmentDtoByDepartment(Department department) {
 		DepartmentDto departmentDto = new DepartmentDto();
 		departmentDto.setDepartmentId(department.getDepartmentId());
+//		departmentDto.setDepartmentPassword(department.getDepartmentPassword());
 		departmentDto.setDepartmentName(department.getDepartmentName());
-		
 		List<Employee> employees = department.getListOfEmployees();
 		List<EmployeeDto> employeeDtos = new ArrayList<>();
 		for(Employee employee:employees) {
@@ -82,6 +82,7 @@ public class DepartmentServicesClass implements DepartmentServices {
 	public Department createDepartmentByDepartmentDto(DepartmentDto departmentDto) {
 		Department department = new Department();
 		department.setDepartmentId(departmentDto.getDepartmentId());
+//		department.setDepartmentPassword(departmentDto.getDepartmentPassword());
 		department.setDepartmentName(departmentDto.getDepartmentName());
 		department.setListOfEmployees(departmentDto.getEmployeesOfDepartment());
 //		department.setListOfEmployees(departmentDto.getEmployeesOfDepatment());

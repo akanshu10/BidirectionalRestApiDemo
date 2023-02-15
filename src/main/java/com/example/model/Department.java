@@ -21,6 +21,7 @@ public class Department {
 	@Id
 	private Integer departmentId;
 	private String departmentName;
+//	private String departmentPassword;
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "employeeDepartment",orphanRemoval = true)
 //	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 //	@JsonIgnore

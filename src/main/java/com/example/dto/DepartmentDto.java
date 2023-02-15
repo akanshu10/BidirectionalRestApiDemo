@@ -12,6 +12,7 @@ public class DepartmentDto {
 	
 	private Integer departmentId;
 	private String departmentName;
+//	private String departmentPassword;
 	private List<EmployeeDto> employeesDtoOfDepatment;
 	private List<Employee> employeesOfDepartment;
 }

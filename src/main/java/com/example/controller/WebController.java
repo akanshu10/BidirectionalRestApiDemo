@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.dao.EmployeeDao;
 import com.example.dto.DepartmentDto2;
 import com.example.dto.EmployeeDto;
 import com.example.model.Department;
@@ -54,6 +55,11 @@ public class WebController {
 	@GetMapping("/employee")
 	public List<EmployeeDto> getAllEmployees(){
 		return employeeService.getAllEmployee();
+	}
+	
+	@GetMapping("/employee/{employeeId}/department")
+	public Department getDepartmentByEmployeeId(@PathVariable("employeeId") Integer employeeId) {
+		return employeeService.getDepartmentByEmployeeId(employeeId);
 	}
 	
 	@PostMapping("/employee")

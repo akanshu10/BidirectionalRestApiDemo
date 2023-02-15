@@ -20,6 +20,7 @@ public class Employee {
 	private String employeeName;
 	private String companyName;
 	private Integer employeeAge;
+//	private String employeePassword;
 	@ManyToOne
 	private Department employeeDepartment;
 	

@@ -30,6 +30,7 @@ public class EmployeeServicesClass implements EmployeeService {
 		department.setDepartmentId(employeeDto.getDepartmentId());
 		department.setDepartmentName(employeeDto.getDepartmentName());
 		employee.setEmployeeId(employeeDto.getEmployeeId());
+//		employee.setEmployeePassword(employeeDto.getEmployeePassword());
 		employee.setEmployeeName(employeeDto.getEmployeeName());
 		employee.setCompanyName(employeeDto.getCompanyName());
 		employee.setEmployeeAge(employeeDto.getEmployeeAge());
@@ -111,6 +112,13 @@ public class EmployeeServicesClass implements EmployeeService {
 		employee.setEmployeeDepartment(department);
 		
 		return employee;
+	}
+
+	@Override
+	public Department getDepartmentByEmployeeId(Integer employeeId) {
+		Department department = employeeDao.findById(employeeId).get().getEmployeeDepartment();
+		department.setListOfEmployees(null);
+		return department;
 	}
 
 }
